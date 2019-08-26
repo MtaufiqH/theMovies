@@ -1,4 +1,4 @@
-package com.example.taufiq.themovies.view;
+package com.example.taufiq.themovies.view.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
