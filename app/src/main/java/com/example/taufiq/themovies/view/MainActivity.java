@@ -1,7 +1,9 @@
-package com.example.taufiq.themovies;
+package com.example.taufiq.themovies.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.taufiq.themovies.R;
 
 public class MainActivity extends AppCompatActivity {
 
