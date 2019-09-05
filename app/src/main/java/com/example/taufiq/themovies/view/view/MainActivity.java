@@ -6,11 +6,14 @@ import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.taufiq.themovies.R;
+import com.example.taufiq.themovies.view.view.fragment.MoviesFragment;
+import com.example.taufiq.themovies.view.view.fragment.TvFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,8 +26,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bottomNavigationView = findViewById(R.id.nav_bottom);
+        initFragment(new MoviesFragment());
 
         bottomNavigationSetup(bottomNavigationView);
+
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(false);
+        }
     }
 
     private void bottomNavigationSetup(BottomNavigationView bottomNavigationView) {

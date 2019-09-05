@@ -1,12 +1,55 @@
-<resources>
-    <string name="app_name">theMovies</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" translatable="false">theMovies</string>
 
 
     <!--Menu String Resources-->
-    <string name="movies_menu">Movies</string>
-    <string name="tv_show_menu">Tv Show</string>
-    <string name="setting_menu">Setting</string>
+    <string name="movies_menu" translatable="false">Movies</string>
+    <string name="setting_menu" translatable="false">Setting</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--
+
+    TV Show Resource String
+
+    -->
+    <string name="flash_overview">After a particle accelerator causes a freak storm, CSI Investigator Barry Allen is struck by lightning and falls into a coma. Months later he awakens with the power of super speed,
+        granting him the ability to move through Central City like an unseen guardian angel.
+        Though initially excited by his newfound powers, Barry is shocked to discover he is not the only
+        \"meta-human\" who was created in the wake of the accelerator explosion — and not everyone is
+        using their new powers for good. Barry partners with S.T.A.R. Labs and dedicates his life
+        to protect the innocent. For now, only a few close friends and associates know that Barry is
+        literally the fastest man alive, but it won\'t be long before the world learns what Barry
+        Allen has become…The Flash.</string>
+    <string name="flash_date">October 7, 2014</string>
+
+
+    <string name="oldman_overview">The true story of Forrest Tucker, from his audacious escape from San
+        Quentin at the age of 70 to an unprecedented string of heists that confounded authorities and
+        enchanted the public. Wrapped up in the pursuit are a detective, who becomes captivated with
+        Forrest’s commitment to his craft, and a woman, who loves him in spite of his chosen profession.</string>
+    <string name="oldman_date">August 31, 2018</string>
+    <string name="oldman_runtime">1h 33m</string>
+
+    <!--
+    Movie Genres
+    -->
+    <string name="genres_comedy">Comedy</string>
+    <string name="genres_romance">Romance</string>
+
+    <!--
+    Movie Items
+    -->
+    <string name="overview">Overview</string>
+    <string name="network_res">Network</string>
+    <string name="runtime_res">Runtime</string>
+    <string name="status_res">Status</string>
+    <string name="movie_status">Released</string>
+
+
+    <string name="hello_love_goodbye_overview">A love story of Joy and Ethan, Filipino workers based in Hong Kong.
+        Ethan, a bartender, is keen on romantically pursuing Joy, a domestic helper who is wholly dedicated to providing
+        for her family.</string>
+    <string name="hello_love_goodbye_date">August 8, 2019</string>
+    <string name="hello_love_goodbye_runtime">1h 58m</string>
+    <string name="tv_show_menu" translatable="false">Tv Show</string>
 </resources>

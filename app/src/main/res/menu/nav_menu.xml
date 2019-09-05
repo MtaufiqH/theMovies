@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
 
     <item
         android:id="@+id/movies_menu"
         android:title="@string/movies_menu"
         android:orderInCategory="100"
-        android:icon="@drawable/ic_movies"/>
+        android:icon="@drawable/ic_movie_black"/>
 
      <item
         android:id="@+id/tv_menu"

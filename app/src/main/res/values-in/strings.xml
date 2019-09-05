@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="oldman_overview">Kisah nyata Forrest Tucker, dari pelariannya yang berani dari San
+        Quentin pada usia 70 tahun ke serangkaian perampokan yang belum pernah terjadi sebelumnya
+        yang membingungkan pihak berwenang dan memikat publik. Terlibat dalam pengejaran adalah seorang
+        detektif, yang menjadi terpikat dengan komitmen Forrest terhadap keahliannya, dan seorang wanita,
+        yang mencintainya terlepas dari profesi pilihannya.</string>
+
+    <string name="flash_overview">Setelah akselerator partikel menyebabkan badai aneh, Penyelidik CSI Barry Allen disambar petir dan jatuh koma. Beberapa bulan kemudian dia terbangun dengan kekuatan kecepatan super, memberinya kemampuan untuk bergerak melalui Central City seperti malaikat penjaga yang tak terlihat. Meskipun awalnya senang dengan kekuatan barunya,
+        Barry terkejut menemukan bahwa dia bukan satu-satunya \"manusia meta\" yang diciptakan setelah ledakan akselerator - dan tidak semua orang menggunakan kekuatan baru mereka untuk kebaikan. Barry bermitra dengan S.T.A.R. Lab dan mendedikasikan hidupnya untuk melindungi yang tidak bersalah. Untuk saat ini, hanya beberapa teman dekat dan rekan yang tahu bahwa Barry secara harfiah adalah manusia tercepat,
+        tetapi tidak akan lama sebelum dunia mengetahui apa yang menjadi Barry Allen … The Flash.</string>
+
+
+    <string name="overview">ikhtisar</string>
+    <string name="network_res">jaringan</string>
+    <string name="runtime_res">Runtime</string>
+    <string name="status_res">Status</string>
+    <string name="movie_status">dirilis</string>
+    <string name="flash_date">7 Oktober 2014</string>
+    <string name="hello_love_goodbye_runtime">1j 58m</string>
+    <string name="oldman_date">31 Agustus 2018</string>
+    <string name="oldman_runtime">1j 33m</string>
+    <string name="genres_comedy">Komedi</string>
+    <string name="genres_romance">Romantis</string>
+    <string name="hello_love_goodbye_date">8 Agustus 2019</string>
+    <string name="hello_love_goodbye_overview">Kisah cinta Joy dan Ethan, pekerja Filipina yang berbasis di Hong Kong. Ethan, seorang bartender, sangat ingin mengejar Joy, seorang pembantu rumah tangga yang sepenuhnya berdedikasi untuk menyediakan nafkah bagi keluarganya.</string>
+
+</resources>
