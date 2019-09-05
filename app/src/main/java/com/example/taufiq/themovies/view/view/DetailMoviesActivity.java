@@ -1,10 +1,9 @@
 package com.example.taufiq.themovies.view.view;
 
 import android.content.Intent;
-import android.content.IntentFilter;
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,8 +16,8 @@ public class DetailMoviesActivity extends AppCompatActivity {
 
     private static final String TAG = "DetailMoviesActivity";
 
-    TextView genres,movie_title,movie_date,movie_rating,
-            movie_runtime,movie_status,movie_overview;
+    TextView genres, movie_title, movie_date, movie_rating,
+            movie_runtime, movie_status, movie_overview;
 
     ImageView backdrop_movie;
 
@@ -62,7 +61,7 @@ public class DetailMoviesActivity extends AppCompatActivity {
 
 
         } else
-            Log.d(TAG,"Intent has no extras");
+            Log.d(TAG, "Intent has no extras");
 
     }
 }

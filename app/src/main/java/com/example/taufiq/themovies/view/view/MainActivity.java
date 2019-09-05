@@ -8,7 +8,6 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.taufiq.themovies.R;
@@ -55,32 +54,16 @@ public class MainActivity extends AppCompatActivity {
                             case R.id.tv_menu:
                                 initFragment(new TvFragment());
                                 break;
+
+                            case R.id.settings_id:
+                                Intent intent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
+                                startActivity(intent);
+                                break;
                         }
                         return true;
                     }
                 });
 
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.settings_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        int id = item.getItemId();
-        int menuId = R.id.settings_id;
-        if (id == menuId) {
-            Intent intent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
-            startActivity(intent);
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
 

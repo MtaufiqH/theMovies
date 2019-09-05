@@ -14,4 +14,10 @@
         android:orderInCategory="200"
         android:icon="@drawable/ic_tv"/>
 
+    <item
+        android:id="@+id/settings_id"
+        android:orderInCategory="300"
+        android:icon="@drawable/ic_settings_black"
+        android:title="@string/setting_menu"/>
+
 </menu>

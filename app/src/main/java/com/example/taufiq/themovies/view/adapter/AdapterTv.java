@@ -26,7 +26,7 @@ import java.util.List;
 public class AdapterTv extends RecyclerView.Adapter<AdapterTv.tvViewHolder> {
 
     private List<Movies> moviesList;
-    Context context;
+    private Context context;
 
     public AdapterTv(List<Movies> moviesList, Context context) {
         this.moviesList = moviesList;
