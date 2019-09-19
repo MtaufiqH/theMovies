@@ -93,7 +93,7 @@ public class TvFragment extends Fragment {
     private void initRecyclerView(View view) {
         RecyclerView recyclerView = view.findViewById(R.id.recycler_tv);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        AdapterTv adapterTv = new AdapterTv(movieItems, view.getContext());
+        AdapterTv adapterTv = new AdapterTv(movieItems);
         recyclerView.setAdapter(adapterTv);
 
     }

@@ -26,11 +26,9 @@ import java.util.List;
 public class AdapterTv extends RecyclerView.Adapter<AdapterTv.tvViewHolder> {
 
     private List<Movies> moviesList;
-    private Context context;
 
-    public AdapterTv(List<Movies> moviesList, Context context) {
+    public AdapterTv(List<Movies> moviesList) {
         this.moviesList = moviesList;
-        this.context = context;
     }
 
     @NonNull
@@ -60,7 +58,6 @@ public class AdapterTv extends RecyclerView.Adapter<AdapterTv.tvViewHolder> {
             super(itemView);
 
             movieTitle = itemView.findViewById(R.id.mv_title);
-            movieYear = itemView.findViewById(R.id.mv_year);
             movieRatingScore = itemView.findViewById(R.id.mv_rating);
             movieGenre = itemView.findViewById(R.id.mv_genres);
             moviePoster = itemView.findViewById(R.id.mv_poster);
@@ -72,7 +69,6 @@ public class AdapterTv extends RecyclerView.Adapter<AdapterTv.tvViewHolder> {
         private void bind(final Movies movies) {
 
             movieTitle.setText(movies.getMovieTitle());
-            movieYear.setText(movies.getYearRelease());
             movieRatingScore.setText(movies.getRatingScore());
             movieGenre.setText(movies.getGenres());
             minOverview.setText(movies.getOverviewMovies());

@@ -47,12 +47,6 @@
                     android:textStyle="bold"
                     tools:text="Amazing Spiderman" />
 
-                <TextView
-                    android:id="@+id/mv_year"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    tools:text="(2019)" />
 
 
             </LinearLayout>
@@ -83,26 +77,26 @@
             </LinearLayout>
 
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/bg_genres">
+            <!--<LinearLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:background="@drawable/bg_genres">-->
 
-                <TextView
-                    android:id="@+id/mv_genres"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="8dp"
-                    android:paddingTop="2dp"
-                    android:paddingRight="8dp"
-                    android:paddingBottom="2dp"
-                    android:textColor="#fff"
-                    android:textSize="8sp"
-                    android:textStyle="bold"
-                    tools:ignore="SmallSp"
-                    tools:text="Drama" />
-            </LinearLayout>
+                <!--<TextView-->
+                    <!--android:id="@+id/mv_genres"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:paddingLeft="8dp"-->
+                    <!--android:paddingTop="2dp"-->
+                    <!--android:paddingRight="8dp"-->
+                    <!--android:paddingBottom="2dp"-->
+                    <!--android:textColor="#fff"-->
+                    <!--android:textSize="8sp"-->
+                    <!--android:textStyle="bold"-->
+                    <!--tools:ignore="SmallSp"-->
+                    <!--tools:text="Drama" />-->
+            <!--</LinearLayout>-->
 
 
             <TextView

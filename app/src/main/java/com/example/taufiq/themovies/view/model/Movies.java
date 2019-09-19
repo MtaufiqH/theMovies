@@ -8,6 +8,8 @@ import android.os.Parcelable;
  */
 public class Movies implements Parcelable {
 
+    private static final String API_KEY = "a9cf73338eb243a037495dbd3ad34cb3";
+
     private String movieTitle;
     private String overviewMovies;
     private String dateRelease;

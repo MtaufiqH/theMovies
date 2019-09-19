@@ -3,9 +3,9 @@
 
 
     <!--Menu String Resources-->
-    <string name="movies_menu" translatable="false">Movies</string>
-    <string name="setting_menu" translatable="false">Setting</string>
-    <string name="tv_show_menu" translatable="false">Tv shows</string>
+    <string name="movies_menu">Movies</string>
+    <string name="setting_menu">Setting</string>
+    <string name="tv_show">Tv shows</string>
 
 
     <!--
@@ -127,5 +127,8 @@
     <string name="naruto_overview">Naruto Shippuuden is the continuation of the original animated TV series Naruto.The story revolves around an older and slightly more matured Uzumaki Naruto and his quest to save his friend Uchiha Sasuke from the grips of the snake-like Shinobi, Orochimaru. After 2 and a half years Naruto finally returns to his village of Konoha, and sets about putting his ambitions to work, though it will not be easy, as He has amassed a few (more dangerous) enemies, in the likes of the shinobi organization; Akatsuki.</string>
     <string name="naruto_date">February 15, 2007</string>
     <string name="naruto_runtime">22m</string>
+    <string name="movie_backdrop">Movie backdrop</string>
+    <string name="tv_backdrop">tv backdrop</string>
+    <string name="rating_img">rating_img</string>
 
 </resources>

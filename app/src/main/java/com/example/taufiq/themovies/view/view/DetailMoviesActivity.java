@@ -16,10 +16,10 @@ public class DetailMoviesActivity extends AppCompatActivity {
 
     private static final String TAG = "DetailMoviesActivity";
 
-    TextView genres, movie_title, movie_date, movie_rating,
+    private TextView genres, movie_title, movie_date, movie_rating,
             movie_runtime, movie_status, movie_overview;
 
-    ImageView backdrop_movie;
+    private ImageView backdrop_movie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

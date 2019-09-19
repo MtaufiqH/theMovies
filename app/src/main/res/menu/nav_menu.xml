@@ -10,7 +10,7 @@
 
      <item
         android:id="@+id/tv_menu"
-        android:title="@string/tv_show_menu"
+        android:title="@string/tv_show"
         android:orderInCategory="200"
         android:icon="@drawable/ic_tv"/>
 

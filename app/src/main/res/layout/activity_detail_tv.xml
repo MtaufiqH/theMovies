@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@drawable/tokyo"
-        tools:ignore="ContentDescription" />
+        android:contentDescription="@string/movie_backdrop" />
 
 
     <View
@@ -61,35 +61,30 @@
         app:layout_constraintVertical_bias="1.0" />
 
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/date_id"
-        app:layout_constraintHorizontal_bias="0.0"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_star_black_24dp"
         app:layout_constraintStart_toStartOf="@+id/date_id"
         app:layout_constraintTop_toBottomOf="@+id/date_id"
-        tools:ignore="UseCompoundDrawables">
+        tools:ignore="ContentDescription" />
 
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_star_black_24dp"
-            tools:ignore="ContentDescription" />
+    <TextView
+        android:id="@+id/mv_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="4dp"
+        android:textColor="#FFA019"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        tools:text="7.5" />
 
-        <TextView
-            android:id="@+id/mv_rating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="4dp"
-            android:textColor="#FFA019"
-            tools:text="7.5" />
 
-    </LinearLayout>
 
 
     <TextView
@@ -103,33 +98,29 @@
         tools:text="August 07,2019" />
 
 
-    <LinearLayout
-        android:elevation="4dp"
+    <View
+        android:id="@+id/view4"
+        android:layout_width="110dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_genres"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view" />
+
+    <TextView
+        android:id="@+id/mv_genres"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/bg_genres"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.11"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view">
-
-        <TextView
-            android:id="@+id/mv_genres"
-            android:layout_width="90dp"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal"
-            android:paddingLeft="10dp"
-            android:paddingTop="6dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="6dp"
-            android:textColor="#fff"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            tools:text="Drama" />
-    </LinearLayout>
+        android:gravity="center_horizontal"
+        android:textColor="#fff"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/view4"
+        app:layout_constraintEnd_toEndOf="@+id/view4"
+        app:layout_constraintStart_toStartOf="@+id/view4"
+        app:layout_constraintTop_toTopOf="@+id/view4"
+        tools:text="Petualangan" />
 
 
     <View
@@ -137,7 +128,7 @@
         android:layout_width="1dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="80dp"
         android:background="#CE696969"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintHorizontal_bias="0.49"
@@ -161,15 +152,16 @@
         tools:text="2h 2m" />
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:text="@string/runtime_res"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="@+id/runtime_id"
         app:layout_constraintStart_toStartOf="@+id/runtime_id"
-        app:layout_constraintTop_toBottomOf="@+id/runtime_id"
-        android:text="@string/runtime_res" />
+        app:layout_constraintTop_toBottomOf="@+id/runtime_id" />
 
 
     <ImageView

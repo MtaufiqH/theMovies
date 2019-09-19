@@ -16,10 +16,10 @@ public class DetailTvActivity extends AppCompatActivity {
 
     private static final String TAG = "DetailTvActivity";
 
-    TextView genres, tv_title, tv_date, tv_rating,
+    private TextView genres, tv_title, tv_date, tv_rating,
             tv_runtime, tv_overview;
 
-    ImageView backdrop_tv, tv_network;
+    private ImageView backdrop_tv, tv_network;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

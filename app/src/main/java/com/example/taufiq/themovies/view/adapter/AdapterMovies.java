@@ -1,6 +1,5 @@
 package com.example.taufiq.themovies.view.adapter;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -14,10 +13,13 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.taufiq.themovies.BuildConfig;
 import com.example.taufiq.themovies.R;
-import com.example.taufiq.themovies.view.model.Movies;
+import com.example.taufiq.themovies.view.model.remote.movies.Movie;
+import com.example.taufiq.themovies.view.model.remote.movies.MovieResult;
 import com.example.taufiq.themovies.view.view.DetailMoviesActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,13 +27,10 @@ import java.util.List;
  */
 public class AdapterMovies extends RecyclerView.Adapter<AdapterMovies.movieViewHolder> {
 
+    private ArrayList<MovieResult> moviesList;
 
-    private List<Movies> moviesList;
-    Context context;
-
-    public AdapterMovies(Context context, List<Movies> moviesList) {
+    public AdapterMovies(ArrayList<MovieResult> moviesList) {
         this.moviesList = moviesList;
-        this.context = context;
     }
 
     @NonNull
@@ -53,39 +52,40 @@ public class AdapterMovies extends RecyclerView.Adapter<AdapterMovies.movieViewH
 
     class movieViewHolder extends RecyclerView.ViewHolder {
 
-        TextView movieTitle, movieYear, movieRatingScore, movieGenre,minOverView;
+        TextView movieTitle, movieRatingScore, movieGenre, minOverView;
         ImageView moviePoster;
 
         private movieViewHolder(@NonNull View itemView) {
             super(itemView);
 
             movieTitle = itemView.findViewById(R.id.mv_title);
-            movieYear = itemView.findViewById(R.id.mv_year);
             movieRatingScore = itemView.findViewById(R.id.mv_rating);
             movieGenre = itemView.findViewById(R.id.mv_genres);
             moviePoster = itemView.findViewById(R.id.mv_poster);
             minOverView = itemView.findViewById(R.id.overview_placeholder);
         }
 
-        private void bind(final Movies movies) {
+        private void bind(final MovieResult movies) {
 
-            movieTitle.setText(movies.getMovieTitle());
-            movieYear.setText(movies.getYearRelease());
-            movieRatingScore.setText(movies.getRatingScore());
-            movieGenre.setText(movies.getGenres());
-            minOverView.setText(movies.getOverviewMovies());
+          //String vote_average =  movies.getVoteAverage();
 
-            Glide.with(itemView).load(movies.getPoster())
-                    .apply(new RequestOptions().transform(new CenterCrop(),new RoundedCorners(16)))
+            movieTitle.setText(movies.getTitle());
+            //movieRatingScore.setText(vote_average);
+            //movieGenre.setText(movies.getGenreIds().get(position));
+            minOverView.setText(movies.getOverview());
+
+            final  String posterPath = movies.getPosterPath();
+            final String imgUrl = BuildConfig.URL_IMAGE;
+
+            Glide.with(itemView).load(imgUrl + posterPath)
+                    .apply(new RequestOptions().transform(new CenterCrop(), new RoundedCorners(16)))
                     .into(moviePoster);
-
 
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent moveToDetail = new Intent(itemView.getContext(), DetailMoviesActivity.class);
-                    moveToDetail.putExtra("ITEM",movies);
                     itemView.getContext().startActivity(moveToDetail);
                 }
             });

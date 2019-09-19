@@ -86,6 +86,12 @@
     <string name="angel_overview">Agen Layanan Rahasia Mike Banning dijebak untuk percobaan pembunuhan Presiden dan harus menghindari agensinya sendiri dan FBI ketika ia mencoba mengungkap ancaman sebenarnya.</string>
     <string name="aladin_overview">Seorang anak jalanan yang baik hati bernama Aladdin memulai petualangan magis setelah menemukan lampu yang melepaskan jin yang membingungkan sementara Wazir Agung yang haus kekuasaan bersaing untuk lampu yang sama yang memiliki kekuatan untuk membuat harapan terdalam mereka menjadi kenyataan.</string>
     <string name="lion_overview">Simba mengidolakan ayahnya, Raja Mufasa, dan mengambil hati takdir kerajaannya sendiri. Tapi tidak semua orang di kerajaan merayakan kedatangan anak baru itu. Scar, saudara lelaki Mufasa — dan mantan pewaris takhta — memiliki rencana sendiri. Pertempuran untuk Pride Rock dirusak dengan pengkhianatan, tragedi dan drama, yang akhirnya menghasilkan pengasingan Simba. Dengan bantuan dari sepasang teman baru yang penasaran, Simba harus mencari cara untuk tumbuh dan mengambil kembali apa yang menjadi haknya.</string>
+    <string name="movies_menu">Film</string>
+    <string name="setting_menu">Pengaturan</string>
+    <string name="tv_show">Acara TV</string>
+    <string name="movie_backdrop">Latar Belakang Film</string>
+    <string name="rating_img">Peringkat</string>
+    <string name="tv_backdrop">latar Belakang Tv</string>
 
 
 </resources>
