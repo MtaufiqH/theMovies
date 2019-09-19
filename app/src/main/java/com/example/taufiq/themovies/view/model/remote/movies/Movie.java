@@ -13,37 +13,46 @@ public class Movie {
 
     @SerializedName("page")
     @Expose
-    private int page;
-
-    @SerializedName("total_result")
+    private Integer page;
+    @SerializedName("total_results")
     @Expose
-    private int total_result;
-
+    private Integer totalResults;
+    @SerializedName("total_pages")
+    @Expose
+    private Integer totalPages;
     @SerializedName("results")
     @Expose
-    private ArrayList<MovieResult> movie_results;
+    private List<MovieResult> results = null;
 
-    public int getPage() {
+    public Integer getPage() {
         return page;
     }
 
-    public void setPage(int page) {
+    public void setPage(Integer page) {
         this.page = page;
     }
 
-    public int getTotal_result() {
-        return total_result;
+    public Integer getTotalResults() {
+        return totalResults;
     }
 
-    public void setTotal_result(int total_result) {
-        this.total_result = total_result;
+    public void setTotalResults(Integer totalResults) {
+        this.totalResults = totalResults;
     }
 
-    public ArrayList<MovieResult> getMovie_results() {
-        return movie_results;
+    public Integer getTotalPages() {
+        return totalPages;
     }
 
-    public void setMovie_results(ArrayList<MovieResult> movie_results) {
-        this.movie_results = movie_results;
+    public void setTotalPages(Integer totalPages) {
+        this.totalPages = totalPages;
+    }
+
+    public List<MovieResult> getResults() {
+        return results;
+    }
+
+    public void setResults(List<MovieResult> results) {
+        this.results = results;
     }
 }

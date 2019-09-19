@@ -12,66 +12,69 @@ public class MovieResult {
 
     @SerializedName("popularity")
     @Expose
-    private double popularity;
-
+    private Double popularity;
     @SerializedName("vote_count")
     @Expose
-    private int voteCount;
-
+    private Integer voteCount;
+    @SerializedName("video")
+    @Expose
+    private Boolean video;
     @SerializedName("poster_path")
     @Expose
     private String posterPath;
-
     @SerializedName("id")
     @Expose
-    private int id;
-
+    private Integer id;
+    @SerializedName("adult")
+    @Expose
+    private Boolean adult;
     @SerializedName("backdrop_path")
     @Expose
     private String backdropPath;
-
     @SerializedName("original_language")
     @Expose
     private String originalLanguage;
-
     @SerializedName("original_title")
     @Expose
     private String originalTitle;
-
     @SerializedName("genre_ids")
     @Expose
-    private List<Integer> genreIds;
-
+    private List<Integer> genreIds = null;
     @SerializedName("title")
     @Expose
     private String title;
-
     @SerializedName("vote_average")
     @Expose
-    private double voteAverage;
-
+    private Integer voteAverage;
     @SerializedName("overview")
     @Expose
     private String overview;
-
     @SerializedName("release_date")
     @Expose
     private String releaseDate;
 
-    public double getPopularity() {
+    public Double getPopularity() {
         return popularity;
     }
 
-    public void setPopularity(double popularity) {
+    public void setPopularity(Double popularity) {
         this.popularity = popularity;
     }
 
-    public int getVoteCount() {
+    public Integer getVoteCount() {
         return voteCount;
     }
 
-    public void setVoteCount(int voteCount) {
+    public void setVoteCount(Integer voteCount) {
         this.voteCount = voteCount;
+    }
+
+    public Boolean getVideo() {
+        return video;
+    }
+
+    public void setVideo(Boolean video) {
+        this.video = video;
     }
 
     public String getPosterPath() {
@@ -82,12 +85,20 @@ public class MovieResult {
         this.posterPath = posterPath;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Boolean getAdult() {
+        return adult;
+    }
+
+    public void setAdult(Boolean adult) {
+        this.adult = adult;
     }
 
     public String getBackdropPath() {
@@ -130,11 +141,11 @@ public class MovieResult {
         this.title = title;
     }
 
-    public double getVoteAverage() {
+    public Integer getVoteAverage() {
         return voteAverage;
     }
 
-    public void setVoteAverage(Double voteAverage) {
+    public void setVoteAverage(Integer voteAverage) {
         this.voteAverage = voteAverage;
     }
 
@@ -153,6 +164,4 @@ public class MovieResult {
     public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
     }
-
-
 }

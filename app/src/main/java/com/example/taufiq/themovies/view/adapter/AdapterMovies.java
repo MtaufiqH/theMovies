@@ -15,11 +15,9 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.taufiq.themovies.BuildConfig;
 import com.example.taufiq.themovies.R;
-import com.example.taufiq.themovies.view.model.remote.movies.Movie;
 import com.example.taufiq.themovies.view.model.remote.movies.MovieResult;
 import com.example.taufiq.themovies.view.view.DetailMoviesActivity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,9 +25,9 @@ import java.util.List;
  */
 public class AdapterMovies extends RecyclerView.Adapter<AdapterMovies.movieViewHolder> {
 
-    private ArrayList<MovieResult> moviesList;
+    private List<MovieResult> moviesList;
 
-    public AdapterMovies(ArrayList<MovieResult> moviesList) {
+    public AdapterMovies(List<MovieResult> moviesList) {
         this.moviesList = moviesList;
     }
 
@@ -67,10 +65,10 @@ public class AdapterMovies extends RecyclerView.Adapter<AdapterMovies.movieViewH
 
         private void bind(final MovieResult movies) {
 
-          //String vote_average =  movies.getVoteAverage();
+          String vote_average =  movies.getVoteAverage().toString();
 
             movieTitle.setText(movies.getTitle());
-            //movieRatingScore.setText(vote_average);
+            movieRatingScore.setText(vote_average);
             //movieGenre.setText(movies.getGenreIds().get(position));
             minOverView.setText(movies.getOverview());
 

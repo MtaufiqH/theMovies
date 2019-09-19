@@ -22,6 +22,7 @@ import com.example.taufiq.themovies.view.model.remote.movies.Movie;
 import com.example.taufiq.themovies.view.model.remote.movies.MovieResult;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,7 +34,7 @@ import retrofit2.Response;
 public class MoviesFragment extends Fragment {
 
 
-    ArrayList<MovieResult> movieItems = new ArrayList<>();
+    List<MovieResult> movieItems;
     ProgressBar progressBar;
 
 
@@ -49,7 +50,7 @@ public class MoviesFragment extends Fragment {
         call.enqueue(new Callback<Movie>() {
             @Override
             public void onResponse(@NonNull Call<Movie> call, @NonNull Response<Movie> response) {
-                movieItems = response.body().getMovie_results();
+                movieItems = response.body().getResults();
                 progressBar.setVisibility(View.GONE);
                 Toast.makeText(getContext(), "Success" , Toast.LENGTH_SHORT).show();
 
