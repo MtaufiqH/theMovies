@@ -27,13 +27,10 @@ public class DetailTvActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail_tv);
 
 
-        genres = findViewById(R.id.mv_genres);
         backdrop_tv = findViewById(R.id.imageView_tv);
         tv_title = findViewById(R.id.movie_title);
         tv_date = findViewById(R.id.date_id);
         tv_rating = findViewById(R.id.mv_rating);
-        tv_runtime = findViewById(R.id.runtime_id);
-        tv_network = findViewById(R.id.network_ic_id);
         tv_overview = findViewById(R.id.overview_id);
 
 

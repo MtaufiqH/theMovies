@@ -36,21 +36,36 @@ public class MoviesFragment extends Fragment {
 
     List<MovieResult> movieItems;
     ProgressBar progressBar;
+    AdapterMovies adapterMovies;
 
 
     public MoviesFragment() {
         // Required empty public constructor
     }
 
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        return inflater.inflate(R.layout.fragment_movies_, container, false);
+
+    }
+
     private void initRetrofit() {
 
         String API_KEY = BuildConfig.API_KEY;
+        String language = "en-US";
         Api_Route api_route = Api_Client.RetrofitClient().create(Api_Route.class);
-        Call<Movie> call = api_route.getMovie(API_KEY,"en-US");
+        Call<Movie> call = api_route.getMovie(API_KEY,language);
         call.enqueue(new Callback<Movie>() {
             @Override
             public void onResponse(@NonNull Call<Movie> call, @NonNull Response<Movie> response) {
-                movieItems = response.body().getResults();
+                // populate data to adapter
+                movieItems.addAll(response.body().getMovie_results());
+
+                // notify to adapter
+                adapterMovies.notifyDataSetChanged();
+                //hide the progress bar
                 progressBar.setVisibility(View.GONE);
                 Toast.makeText(getContext(), "Success" , Toast.LENGTH_SHORT).show();
 
@@ -65,24 +80,20 @@ public class MoviesFragment extends Fragment {
         });
     }
 
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
-        //moviesDataLoad();
-        return inflater.inflate(R.layout.fragment_movies_, container, false);
-
-    }
-
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        initRetrofit();
+
+        // init ui
         progressBar = view.findViewById(R.id.my_progres_dialog);
         RecyclerView recyclerView = view.findViewById(R.id.rv_movies);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        AdapterMovies adapter = new AdapterMovies(movieItems);
-        recyclerView.setAdapter(adapter);
+
+        //setting adapter
+        movieItems = new ArrayList<>();
+        this.adapterMovies = new AdapterMovies(movieItems);
+        recyclerView.setAdapter(adapterMovies);
+        initRetrofit();
 
 
     }

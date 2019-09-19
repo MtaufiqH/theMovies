@@ -9,31 +9,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.taufiq.themovies.BuildConfig;
 import com.example.taufiq.themovies.R;
-import com.example.taufiq.themovies.view.model.Movies;
+import com.example.taufiq.themovies.view.model.remote.movies.MovieResult;
 
 public class DetailMoviesActivity extends AppCompatActivity {
 
     private static final String TAG = "DetailMoviesActivity";
-
-    private TextView genres, movie_title, movie_date, movie_rating,
-            movie_runtime, movie_status, movie_overview;
-
-    private ImageView backdrop_movie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movies_detail);
 
-        genres = findViewById(R.id.mv_genres);
-        backdrop_movie = findViewById(R.id.imageView_backdrop);
-        movie_title = findViewById(R.id.movie_title);
-        movie_date = findViewById(R.id.date_id);
-        movie_rating = findViewById(R.id.mv_rating);
-        movie_runtime = findViewById(R.id.runtime_id);
-        movie_status = findViewById(R.id.status_id);
-        movie_overview = findViewById(R.id.overview_id);
+        ImageView backdrop_movie = findViewById(R.id.imageView_backdrop);
+        TextView movie_title = findViewById(R.id.movie_title);
+        TextView movie_date = findViewById(R.id.date_id);
+        TextView movie_rating = findViewById(R.id.mv_rating);
+        TextView movie_overview = findViewById(R.id.overview_id);
 
 
         ActionBar actionBar = getSupportActionBar();
@@ -44,23 +37,19 @@ public class DetailMoviesActivity extends AppCompatActivity {
 
         Intent myIntent = getIntent();
 
-        if (myIntent.hasExtra("ITEM")) {
-            Movies movies = myIntent.getParcelableExtra("ITEM");
+        if (myIntent.hasExtra("DATA")) {
+            MovieResult movies = myIntent.getParcelableExtra("DATA");
 
             Glide.with(this)
-                    .load(movies.getBackground())
+                    .load(BuildConfig.URL_IMAGE + movies.getBackdropPath())
                     .into(backdrop_movie);
 
-            movie_title.setText(movies.getMovieTitle());
-            movie_date.setText(movies.getDateRelease());
-            movie_rating.setText(movies.getRatingScore());
-            genres.setText(movies.getGenres());
-            movie_runtime.setText(movies.getRuntime());
-            movie_status.setText(movies.getStatus());
-            movie_overview.setText(movies.getOverviewMovies());
+            movie_title.setText(movies.getOriginalTitle());
+            movie_date.setText(movies.getReleaseDate());
+            movie_rating.setText(movies.getVoteAverage());
+            movie_overview.setText(movies.getOverview());
 
-
-        } else
+        }
             Log.d(TAG, "Intent has no extras");
 
     }

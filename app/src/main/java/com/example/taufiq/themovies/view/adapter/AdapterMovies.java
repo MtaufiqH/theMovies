@@ -40,7 +40,7 @@ public class AdapterMovies extends RecyclerView.Adapter<AdapterMovies.movieViewH
 
     @Override
     public void onBindViewHolder(@NonNull movieViewHolder movieViewHolder, int i) {
-        movieViewHolder.bind(moviesList.get(i));
+        movieViewHolder.bind(moviesList.get(i),i);
     }
 
     @Override
@@ -50,7 +50,7 @@ public class AdapterMovies extends RecyclerView.Adapter<AdapterMovies.movieViewH
 
     class movieViewHolder extends RecyclerView.ViewHolder {
 
-        TextView movieTitle, movieRatingScore, movieGenre, minOverView;
+        TextView movieTitle, movieRatingScore,minOverView;
         ImageView moviePoster;
 
         private movieViewHolder(@NonNull View itemView) {
@@ -58,18 +58,16 @@ public class AdapterMovies extends RecyclerView.Adapter<AdapterMovies.movieViewH
 
             movieTitle = itemView.findViewById(R.id.mv_title);
             movieRatingScore = itemView.findViewById(R.id.mv_rating);
-            movieGenre = itemView.findViewById(R.id.mv_genres);
             moviePoster = itemView.findViewById(R.id.mv_poster);
             minOverView = itemView.findViewById(R.id.overview_placeholder);
         }
 
-        private void bind(final MovieResult movies) {
+        private void bind(final MovieResult movies, final int i) {
 
-          String vote_average =  movies.getVoteAverage().toString();
+          String vote_average =  movies.getVoteAverage();
 
             movieTitle.setText(movies.getTitle());
             movieRatingScore.setText(vote_average);
-            //movieGenre.setText(movies.getGenreIds().get(position));
             minOverView.setText(movies.getOverview());
 
             final  String posterPath = movies.getPosterPath();
@@ -79,11 +77,11 @@ public class AdapterMovies extends RecyclerView.Adapter<AdapterMovies.movieViewH
                     .apply(new RequestOptions().transform(new CenterCrop(), new RoundedCorners(16)))
                     .into(moviePoster);
 
-
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent moveToDetail = new Intent(itemView.getContext(), DetailMoviesActivity.class);
+                    moveToDetail.putExtra("DATA",moviesList.get(i));
                     itemView.getContext().startActivity(moveToDetail);
                 }
             });

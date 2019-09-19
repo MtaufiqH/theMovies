@@ -3,7 +3,6 @@ package com.example.taufiq.themovies.view.model.remote.movies;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,46 +12,38 @@ public class Movie {
 
     @SerializedName("page")
     @Expose
-    private Integer page;
-    @SerializedName("total_results")
+    private int page;
+
+    @SerializedName("total_result")
     @Expose
-    private Integer totalResults;
-    @SerializedName("total_pages")
-    @Expose
-    private Integer totalPages;
+    private int total_result;
+
     @SerializedName("results")
     @Expose
-    private List<MovieResult> results = null;
+    private List<MovieResult> movie_results;
 
-    public Integer getPage() {
+
+    public int getPage() {
         return page;
     }
 
-    public void setPage(Integer page) {
+    public void setPage(int page) {
         this.page = page;
     }
 
-    public Integer getTotalResults() {
-        return totalResults;
+    public int getTotal_result() {
+        return total_result;
     }
 
-    public void setTotalResults(Integer totalResults) {
-        this.totalResults = totalResults;
+    public void setTotal_result(int total_result) {
+        this.total_result = total_result;
     }
 
-    public Integer getTotalPages() {
-        return totalPages;
+    public List<MovieResult> getMovie_results() {
+        return movie_results;
     }
 
-    public void setTotalPages(Integer totalPages) {
-        this.totalPages = totalPages;
-    }
-
-    public List<MovieResult> getResults() {
-        return results;
-    }
-
-    public void setResults(List<MovieResult> results) {
-        this.results = results;
+    public void setMovie_results(List<MovieResult> movie_results) {
+        this.movie_results = movie_results;
     }
 }

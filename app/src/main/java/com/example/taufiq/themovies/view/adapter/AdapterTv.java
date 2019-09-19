@@ -59,7 +59,6 @@ public class AdapterTv extends RecyclerView.Adapter<AdapterTv.tvViewHolder> {
 
             movieTitle = itemView.findViewById(R.id.mv_title);
             movieRatingScore = itemView.findViewById(R.id.mv_rating);
-            movieGenre = itemView.findViewById(R.id.mv_genres);
             moviePoster = itemView.findViewById(R.id.mv_poster);
             minOverview = itemView.findViewById(R.id.overview_placeholder);
         }
