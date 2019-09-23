@@ -1,6 +1,9 @@
 package com.example.taufiq.themovies.view.view.fragment;
 
 
+import android.arch.lifecycle.MutableLiveData;
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -20,6 +23,7 @@ import com.example.taufiq.themovies.view.api.Api_Client;
 import com.example.taufiq.themovies.view.api.Api_Route;
 import com.example.taufiq.themovies.view.model.remote.movies.Movie;
 import com.example.taufiq.themovies.view.model.remote.movies.MovieResult;
+import com.example.taufiq.themovies.view.viewmodel.MyViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +38,7 @@ import retrofit2.Response;
 public class MoviesFragment extends Fragment {
 
 
-    List<MovieResult> movieItems;
+    MutableLiveData<List<MovieResult>> movieItems;
     ProgressBar progressBar;
     AdapterMovies adapterMovies;
 
@@ -51,7 +55,7 @@ public class MoviesFragment extends Fragment {
 
     }
 
-    private void initRetrofit() {
+   /* private void initRetrofit() {
 
         String API_KEY = BuildConfig.API_KEY;
         String language = "en-US";
@@ -78,7 +82,7 @@ public class MoviesFragment extends Fragment {
                 t.printStackTrace();
             }
         });
-    }
+    }*/
 
 
     @Override
@@ -86,14 +90,17 @@ public class MoviesFragment extends Fragment {
 
         // init ui
         progressBar = view.findViewById(R.id.my_progres_dialog);
-        RecyclerView recyclerView = view.findViewById(R.id.rv_movies);
-        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        final RecyclerView recyclerView = view.findViewById(R.id.rv_movies);
 
-        //setting adapter
-        movieItems = new ArrayList<>();
-        this.adapterMovies = new AdapterMovies(movieItems);
-        recyclerView.setAdapter(adapterMovies);
-        initRetrofit();
+        MyViewModel model = ViewModelProviders.of(this).get(MyViewModel.class);
+        model.setMovies(progressBar).observe(this, movieItems->{
+            recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+
+            movieItems = new ArrayList<>();
+            this.adapterMovies = new AdapterMovies(movieItems);
+            this.adapterMovies.notifyDataSetChanged();
+            recyclerView.setAdapter(adapterMovies);
+        });
 
 
     }
