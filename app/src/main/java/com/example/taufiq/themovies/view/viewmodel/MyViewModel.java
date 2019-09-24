@@ -30,7 +30,8 @@ public class MyViewModel extends ViewModel {
     private static final MutableLiveData<ArrayList<TvResult>> tvShows = new MutableLiveData<>();
     private String API_KEY = BuildConfig.API_KEY;
     private String language = "en-US";
-    private ProgressBar progressBar;
+    //private ProgressBar progressBar;
+
 
 
     public MutableLiveData<ArrayList<MovieResult>> getMovies() {

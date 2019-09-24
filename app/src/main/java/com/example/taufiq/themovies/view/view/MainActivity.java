@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(false);
         }
 
+        initFragment(new MoviesFragment());
 
     }
 
@@ -53,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                     return true;
                 });
-
     }
 
 

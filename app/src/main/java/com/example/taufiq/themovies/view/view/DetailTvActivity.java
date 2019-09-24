@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.taufiq.themovies.BuildConfig;
 import com.example.taufiq.themovies.R;
-import com.example.taufiq.themovies.view.model.Movies;
 import com.example.taufiq.themovies.view.model.remote.tvs.TvResult;
 
 public class DetailTvActivity extends AppCompatActivity {
