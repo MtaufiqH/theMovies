@@ -1,8 +1,6 @@
 package com.example.taufiq.themovies.view.view.fragment;
 
 
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,23 +12,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
-import com.example.taufiq.themovies.BuildConfig;
 import com.example.taufiq.themovies.R;
 import com.example.taufiq.themovies.view.adapter.AdapterMovies;
-import com.example.taufiq.themovies.view.api.Api_Client;
-import com.example.taufiq.themovies.view.api.Api_Route;
-import com.example.taufiq.themovies.view.model.remote.movies.Movie;
-import com.example.taufiq.themovies.view.model.remote.movies.MovieResult;
 import com.example.taufiq.themovies.view.viewmodel.MyViewModel;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,7 +23,6 @@ import retrofit2.Response;
 public class MoviesFragment extends Fragment {
 
 
-    MutableLiveData<List<MovieResult>> movieItems;
     ProgressBar progressBar;
     AdapterMovies adapterMovies;
 
@@ -55,56 +39,22 @@ public class MoviesFragment extends Fragment {
 
     }
 
-   /* private void initRetrofit() {
-
-        String API_KEY = BuildConfig.API_KEY;
-        String language = "en-US";
-        Api_Route api_route = Api_Client.RetrofitClient().create(Api_Route.class);
-        Call<Movie> call = api_route.getMovie(API_KEY,language);
-        call.enqueue(new Callback<Movie>() {
-            @Override
-            public void onResponse(@NonNull Call<Movie> call, @NonNull Response<Movie> response) {
-                // populate data to adapter
-                movieItems.addAll(response.body().getMovie_results());
-
-                // notify to adapter
-                adapterMovies.notifyDataSetChanged();
-                //hide the progress bar
-                progressBar.setVisibility(View.GONE);
-                Toast.makeText(getContext(), "Success" , Toast.LENGTH_SHORT).show();
-
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<Movie> call, @NonNull Throwable t) {
-                progressBar.setVisibility(View.GONE);
-                Toast.makeText(getContext(), "" +t , Toast.LENGTH_SHORT).show();
-                t.printStackTrace();
-            }
-        });
-    }*/
-
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
         // init ui
-        progressBar = view.findViewById(R.id.my_progres_dialog);
+        //progressBar = view.findViewById(R.id.my_progres_dialog);
         final RecyclerView recyclerView = view.findViewById(R.id.rv_movies);
 
         MyViewModel model = ViewModelProviders.of(this).get(MyViewModel.class);
-        model.setMovies(progressBar).observe(this, movieItems->{
+        model.getMovies().observe(this, movieResults -> {
             recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-
-            movieItems = new ArrayList<>();
-            this.adapterMovies = new AdapterMovies(movieItems);
+            this.adapterMovies = new AdapterMovies(movieResults);
             this.adapterMovies.notifyDataSetChanged();
             recyclerView.setAdapter(adapterMovies);
         });
 
-
     }
-
 
 }
 

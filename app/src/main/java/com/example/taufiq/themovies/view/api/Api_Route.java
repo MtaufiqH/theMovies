@@ -4,8 +4,6 @@ package com.example.taufiq.themovies.view.api;
 import com.example.taufiq.themovies.view.model.remote.movies.Movie;
 import com.example.taufiq.themovies.view.model.remote.tvs.TvShows;
 
-import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -21,5 +19,5 @@ public interface Api_Route {
 
 
     @GET("discover/tv")
-    Call<List<TvShows.Tv_Result>> getTvShows(@Query("api_key") String api_key,@Query("language") String language);
+    Call<TvShows> getTvShows(@Query("api_key") String api_key,@Query("language") String language);
 }

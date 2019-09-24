@@ -1,6 +1,5 @@
 package com.example.taufiq.themovies.view.adapter;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -14,20 +13,21 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.taufiq.themovies.BuildConfig;
 import com.example.taufiq.themovies.R;
-import com.example.taufiq.themovies.view.model.Movies;
+import com.example.taufiq.themovies.view.model.remote.tvs.TvResult;
 import com.example.taufiq.themovies.view.view.DetailTvActivity;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created By Taufiq on 8/26/2019.
  */
 public class AdapterTv extends RecyclerView.Adapter<AdapterTv.tvViewHolder> {
 
-    private List<Movies> moviesList;
+    private ArrayList<TvResult> moviesList;
 
-    public AdapterTv(List<Movies> moviesList) {
+    public AdapterTv(ArrayList<TvResult> moviesList) {
         this.moviesList = moviesList;
     }
 
@@ -40,8 +40,7 @@ public class AdapterTv extends RecyclerView.Adapter<AdapterTv.tvViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull tvViewHolder tvViewHolder, int i) {
-
-        tvViewHolder.bind(moviesList.get(i));
+        tvViewHolder.bind(moviesList.get(i),i);
     }
 
     @Override
@@ -51,10 +50,10 @@ public class AdapterTv extends RecyclerView.Adapter<AdapterTv.tvViewHolder> {
 
     class tvViewHolder extends RecyclerView.ViewHolder{
 
-        TextView movieTitle, movieYear, movieRatingScore, movieGenre,minOverview;
+        TextView movieTitle, movieRatingScore,minOverview;
         ImageView moviePoster;
 
-        public tvViewHolder(@NonNull View itemView) {
+        tvViewHolder(@NonNull View itemView) {
             super(itemView);
 
             movieTitle = itemView.findViewById(R.id.mv_title);
@@ -65,26 +64,23 @@ public class AdapterTv extends RecyclerView.Adapter<AdapterTv.tvViewHolder> {
 
 
 
-        private void bind(final Movies movies) {
+        private void bind(final TvResult tvResult, final int position) {
 
-            movieTitle.setText(movies.getMovieTitle());
-            movieRatingScore.setText(movies.getRatingScore());
-            movieGenre.setText(movies.getGenres());
-            minOverview.setText(movies.getOverviewMovies());
+            movieTitle.setText(tvResult.getOriginalName());
+            movieRatingScore.setText(tvResult.getVoteAverage());
+            minOverview.setText(tvResult.getOverview());
 
            final int roundCornerValue = 16;
-            Glide.with(itemView).load(movies.getPoster())
+           String image = BuildConfig.URL_IMAGE + tvResult.getPosterPath();
+            Glide.with(itemView).load(image)
                     .apply(new RequestOptions().transform(new CenterCrop(),new RoundedCorners(roundCornerValue)))
                     .into(moviePoster);
 
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent moveToDetail = new Intent(itemView.getContext(), DetailTvActivity.class);
-                    moveToDetail.putExtra("ITEM", movies);
-                    itemView.getContext().startActivity(moveToDetail);
-                }
+            itemView.setOnClickListener(view -> {
+                Intent moveToDetail = new Intent(itemView.getContext(), DetailTvActivity.class);
+                moveToDetail.putExtra("DATA",moviesList.get(position));
+                itemView.getContext().startActivity(moveToDetail);
             });
 
         }

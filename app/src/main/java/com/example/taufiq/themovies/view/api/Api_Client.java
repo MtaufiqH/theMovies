@@ -1,5 +1,7 @@
 package com.example.taufiq.themovies.view.api;
 
+import com.example.taufiq.themovies.BuildConfig;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -13,7 +15,7 @@ public class Api_Client {
 
     //private static final String BASE_URL = BuildConfig.BASE_URL;
 
-    private static String URL = "https://api.themoviedb.org/3/";
+    private final static String URL = BuildConfig.BASE_URL;
 
     private static Retrofit retrofit;
 

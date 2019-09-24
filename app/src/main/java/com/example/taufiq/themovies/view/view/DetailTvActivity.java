@@ -9,17 +9,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.taufiq.themovies.BuildConfig;
 import com.example.taufiq.themovies.R;
 import com.example.taufiq.themovies.view.model.Movies;
+import com.example.taufiq.themovies.view.model.remote.tvs.TvResult;
 
 public class DetailTvActivity extends AppCompatActivity {
 
     private static final String TAG = "DetailTvActivity";
 
-    private TextView genres, tv_title, tv_date, tv_rating,
-            tv_runtime, tv_overview;
-
-    private ImageView backdrop_tv, tv_network;
+    private TextView  tv_title, tv_date, tv_rating,tv_overview;
+    private ImageView backdrop_tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,26 +39,29 @@ public class DetailTvActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
+        initData();
 
-        Intent intent = getIntent();
-        if (intent.hasExtra("ITEM")) {
-            Movies tvShow = intent.getParcelableExtra("ITEM");
-
-            Glide.with(this)
-                    .load(tvShow.getBackground())
-                    .into(backdrop_tv);
-
-            Glide.with(this).load(tvShow.getNetwork()).into(tv_network);
-
-            tv_title.setText(tvShow.getMovieTitle());
-            tv_date.setText(tvShow.getDateRelease());
-            tv_rating.setText(tvShow.getRatingScore());
-            genres.setText(tvShow.getGenres());
-            tv_runtime.setText(tvShow.getRuntime());
-
-            tv_overview.setText(tvShow.getOverviewMovies());
-
-        } else
-            Log.d(TAG, "Intent has no extras!");
     }
+
+
+    private void initData(){
+    Intent intent = getIntent();
+        if (intent.hasExtra("DATA")) {
+        TvResult tvShow = intent.getParcelableExtra("DATA");
+
+        String image = BuildConfig.URL_IMAGE + tvShow.getBackdropPath();
+        Glide.with(this)
+                .load(image)
+                .into(backdrop_tv);
+
+        tv_title.setText(tvShow.getOriginalName());
+        tv_date.setText(tvShow.getFirstAirDate());
+        tv_rating.setText(tvShow.getVoteAverage());
+        tv_overview.setText(tvShow.getOverview());
+
+    } else
+            Log.d(TAG, "Intent has no extras!");
+
+    }
+
 }

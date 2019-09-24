@@ -1,6 +1,7 @@
 package com.example.taufiq.themovies.view.view.fragment;
 
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,20 +11,21 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.example.taufiq.themovies.R;
 import com.example.taufiq.themovies.view.adapter.AdapterTv;
-import com.example.taufiq.themovies.view.model.Movies;
+import com.example.taufiq.themovies.view.viewmodel.MyViewModel;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class TvFragment extends Fragment {
 
-    List<Movies> movieItems = new ArrayList<>();
+    private ProgressBar progressBar;
+    private AdapterTv adapterTv;
 
     public TvFragment() {
         // Required empty public constructor
@@ -31,7 +33,7 @@ public class TvFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_tv, container, false);
     }
@@ -42,22 +44,21 @@ public class TvFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
-        initRecyclerView(view);
-
-    }
-
-    /**
-     * initialize RecyclerView into Fragment
-     *
-     * @param view
-     */
-    private void initRecyclerView(View view) {
-        RecyclerView recyclerView = view.findViewById(R.id.recycler_tv);
+        // init UI
+        final RecyclerView recyclerView = view.findViewById(R.id.recycler_tv);
+        //progressBar = view.findViewById(R.id.tv_progres_dialog);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        AdapterTv adapterTv = new AdapterTv(movieItems);
+
+        MyViewModel model = ViewModelProviders.of(this).get(MyViewModel.class);
+        model.getTvs().observe(this,tvResults -> {
+        this.adapterTv = new AdapterTv(tvResults);
+        this.adapterTv.notifyDataSetChanged();
         recyclerView.setAdapter(adapterTv);
+        });
+
 
     }
+
 
 
 }

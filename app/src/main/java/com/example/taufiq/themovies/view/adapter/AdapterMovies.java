@@ -77,13 +77,10 @@ public class AdapterMovies extends RecyclerView.Adapter<AdapterMovies.movieViewH
                     .apply(new RequestOptions().transform(new CenterCrop(), new RoundedCorners(16)))
                     .into(moviePoster);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent moveToDetail = new Intent(itemView.getContext(), DetailMoviesActivity.class);
-                    moveToDetail.putExtra("DATA",moviesList.get(i));
-                    itemView.getContext().startActivity(moveToDetail);
-                }
+            itemView.setOnClickListener(view -> {
+                Intent moveToDetail = new Intent(itemView.getContext(), DetailMoviesActivity.class);
+                moveToDetail.putExtra("DATA",moviesList.get(i));
+                itemView.getContext().startActivity(moveToDetail);
             });
 
         }
